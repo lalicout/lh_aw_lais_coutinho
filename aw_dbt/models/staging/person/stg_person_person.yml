@@ -1,0 +1,65 @@
+# The descriptions below were taken from the AdventureWorks database documentation in PostgreSQL.
+
+version: 2
+
+models:
+  - name: stg_person_person
+    description: "Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts."
+    columns:
+      - name: person_id
+        description: "Primary key. Unique business entity identification number."
+        tests:
+          - unique
+          - not_null
+      
+      - name: person_type
+        description: "Primary type of person: SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact"
+        tests:
+          - accepted_values:
+              values: ['SC', 'IN', 'SP', 'EM', 'VC', 'GC']
+
+      
+      - name: email_promotion
+        description: "0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners."
+        tests:
+          - accepted_values:
+              values: [0, 1 , 2]
+      
+      - name: full_name
+        description: "Full name of the person."
+      
+      - name: middle_name
+        description: "Middle name of the person."
+      
+      - name: namestyle
+        description: "0 = Western style name (first name, last name), 1 = Eastern style name (last name, first name)."
+      
+      - name: rowguid
+        description: "ROWGUIDCOL number uniquely identifying the record."
+        tests:
+          - not_null
+          - unique
+
+      - name: suffix
+        description: "Surname suffix. For example, Sr. or Jr."
+      
+      - name: title
+        description: "Title of the person."
+      
+# Descriptions for XML extraction fields were generated with the assistance of Copilot. 
+#marital_status not included in the model
+
+      - name: total_purchase_ytd
+        description: "Total purchases year to date."
+      
+      - name: date_first_purchase
+        description: "Date of the first purchase."
+      
+      - name: birth_date
+        description: "Birth date of the person."
+      
+      - name: yearly_income
+        description: "Yearly income of the person."
+      
+      - name: gender
+        description: "Gender of the person."

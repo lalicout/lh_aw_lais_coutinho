@@ -1,0 +1,14 @@
+# The descriptions below were taken from the AdventureWorks database documentation in PostgreSQL.
+
+version: 2
+
+models:
+  - name: stg_person_region_country
+    description: "Lookup table containing the ISO standard codes for countries and regions."
+    columns:
+      
+      - name: country_region_code
+        description: "ISO standard country or region code."
+      
+      - name: country_name
+        description: "Country or region name."

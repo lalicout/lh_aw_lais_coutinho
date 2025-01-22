@@ -1,0 +1,31 @@
+# The descriptions below were taken from the AdventureWorks database documentation in PostgreSQL.
+
+version: 2
+
+models:
+  - name: stg_person_state_province
+    description: "State and province lookup table."
+    columns:
+      - name: id_state_province
+        description: "Primary key. Unique state or province identification number."
+     
+      - name: state_province_code
+        description: "State or province code."
+      
+      - name: id_territory
+        description: "Territory identification number."
+      
+      - name: country_region_code
+        description: "ISO standard country or region code."
+      
+      - name: state_province_name
+        description: "State or province name."
+      
+      - name: state_province_flag
+        description: "0 = StateProvinceCode exists. 1 = StateProvinceCode unavailable, using CountryRegionCode."
+        tests:
+          - accepted_values:
+              values: [0, 1]     
+      
+      - name: rowguide
+        description: "ROWGUIDCOL number uniquely identifying the record."
