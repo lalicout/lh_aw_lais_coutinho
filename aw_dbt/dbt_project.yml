@@ -27,10 +27,10 @@ models:
       +database: aw_database
       materialized: view
     
-      intermediate:
-      +schema: intermediate
-      +database: aw_database
-      materialized: view
+    intermediate:
+    +schema: intermediate
+    +database: aw_database
+    materialized: view
 
     marts:
       +schema: marts
