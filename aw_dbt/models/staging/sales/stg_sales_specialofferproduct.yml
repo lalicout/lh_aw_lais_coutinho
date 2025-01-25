@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_sales_specialofferproduct
+    description: "Cross-reference table mapping products to special offer discounts."
+ 
+    columns:
+      - name: specialoffer_id
+        description: "Primary key for SpecialOfferProduct records."
+
+      - name: product_id
+        description: "Product identification number. Foreign key to Product.ProductID."

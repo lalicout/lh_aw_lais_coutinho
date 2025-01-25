@@ -1,0 +1,28 @@
+version: 2
+models:
+  - name: stg_sales_salesperson
+    description: "Sales representative current information."
+    columns:
+      - name: sales_person_id
+        description: "Primary key for SalesPerson records. Foreign key to Employee.BusinessEntityID."
+        tests:
+          - not_null
+          - unique 
+
+      - name: territory_id
+        description: "Territory currently assigned to. Foreign key to SalesTerritory.SalesTerritoryID."
+
+      - name: sales_quota
+        description: "Projected yearly sales."
+      
+      - name: bonus_amount
+        description: "Bonus due if quota is met."
+      
+      - name: commission_percentage
+        description: "Commission percent received per sale."
+      
+      - name: sales_year_to_date
+        description: "Sales total year to date."
+      
+      - name: sales_last_year
+        description: "Sales total of previous year."

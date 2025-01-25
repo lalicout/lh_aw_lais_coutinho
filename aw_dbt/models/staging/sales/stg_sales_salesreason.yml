@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_sales_salesreason
+    description: "Reasons for sales orders in Adventure Works."
+    columns:
+      - name: sales_reason_id
+        description: "Primary key. Unique sales reason identification number."
+        tests: 
+          - unique
+          - not_null
+      
+      - name: sales_description
+        description: "Description of the sales reason."
+      
+      - name: sales_reason_category
+        description: "Category of the sales reason."

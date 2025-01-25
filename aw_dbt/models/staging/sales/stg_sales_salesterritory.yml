@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: stg_sales_salesterritory
+    description: "Contains objects related to customers, sales orders, and sales territories."
+    columns:
+      - name: territory_id
+        description: "Primary key for SalesTerritory records."
+        tests:
+          - unique
+          - not_null
+
+      - name: territory_name
+        description: "Sales territory description."
+
+      - name: country_region_code
+        description: "ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode."
+      
+      - name: territory_group
+        description: "Geographic area to which the sales territory belongs."
+      
+      - name: sales_year_to_date
+        description: "Sales in the territory year to date."
+      
+      - name: sales_last_year
+        description: "Sales in the territory the previous year."
+      
+      - name: cost_year_to_date
+        description: "Business costs in the territory year to date."
+      
+      - name: cost_last_year
+        description: "Business costs in the territory the previous year."

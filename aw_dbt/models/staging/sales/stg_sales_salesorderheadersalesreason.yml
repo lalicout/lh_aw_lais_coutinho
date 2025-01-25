@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_sales_salesorderheadersalesreason
+    description: "staging model for the `salesorderheaderreason` table from the `sales` schema."
+    
+    columns:
+      - name: sales_order_id
+        description: "Primary key. Foreign key to SalesOrderHeader.SalesOrderID."
+      
+      - name: sales_reason_id
+        description: "Primary key. Foreign key to SalesReason.SalesReasonID."
+    
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sales_order_id
+            - sales_reason_id

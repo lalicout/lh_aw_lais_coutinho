@@ -1,0 +1,44 @@
+
+version: 2
+models:
+  - name: stg_humanresources_employee
+    description: "Contains information about employees and their attributes."
+    columns:
+      - name: employee_id
+        description: "Primary key for Employee records."
+        tests:
+          - unique
+          - not_null
+
+      - name: national_id_number
+        description: "National ID Number for the employee."
+      
+      - name: login_id
+        description: "Employee's login ID."
+      
+      - name: job_title
+        description: "The title of the employee's job."
+      
+      - name: birth_date
+        description: "Employee's date of birth."
+      
+      - name: marital_status
+        description: "Marital status of the employee."
+      
+      - name: gender
+        description: "Gender of the employee."
+      
+      - name: hire_date
+        description: "Date the employee was hired."
+      
+      - name: salaried_flag
+        description: "Indicates if the employee is salaried."
+      
+      - name: vacation_hours
+        description: "Vacation hours allocated to the employee."
+      
+      - name: sick_leave_hours
+        description: "Sick leave hours allocated to the employee."
+      
+      - name: current_flag
+        description: "Indicates if the employee is currently active."

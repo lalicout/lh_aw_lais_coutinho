@@ -28,12 +28,4 @@ models:
      
       - name: postal_code
         description: "Postal code for the street address."
-     
-      - name: spatiallocation
-        description: "Latitude and longitude of this address."
     
-      - name: rowguid
-        description: "ROWGUIDCOL number uniquely identifying the record."
-        tests:
-          - not_null
-          - unique

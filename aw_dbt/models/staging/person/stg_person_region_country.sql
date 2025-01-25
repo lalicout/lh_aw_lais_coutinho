@@ -3,7 +3,7 @@
 with country_region_raw as (
 
     select * 
-    from {{ source('PERSON', 'COUNTRYREGION') }}
+    from {{ source('person', 'countryregion') }}
     
 ),
 
@@ -11,7 +11,7 @@ country_region_transformation as (
     select
 
         countryregioncode as country_region_code
-        ,initcap(name) as country_name
+        , initcap(name) as country_name
 
     from country_region_raw
 )

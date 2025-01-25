@@ -3,7 +3,7 @@
 with address_raw as (
     
     select * 
-    from {{ source('PERSON', 'ADDRESS')}}
+    from {{ source('person', 'address')}}
 ),
 
 address_transformation as (
@@ -15,8 +15,6 @@ address_transformation as (
         , initcap(city) as city
         , stateprovinceid
         , coalesce(postalcode, 'UNKNOWN') as postal_code
-        , spatiallocation
-        , rowguid
 
     from address_raw
 )

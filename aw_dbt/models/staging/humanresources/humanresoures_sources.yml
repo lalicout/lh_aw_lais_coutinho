@@ -1,0 +1,13 @@
+# The descriptions below were taken from the AdventureWorks database documentation in PostgreSQL.
+
+version: 2
+
+sources:
+  - name: humanresources
+    database: aw_database
+    schema: aw_raw__humanresources
+    description: "Description for humanresources schema"
+    tables:
+      - name: employee
+        description: "Employee information such as salary, department, and title."
+      

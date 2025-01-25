@@ -1,5 +1,3 @@
-# The descriptions below were taken from the AdventureWorks database documentation in PostgreSQL.
-
 version: 2
 
 models:

@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: production
+    database: aw_database
+    schema: aw_raw__production
+    description: "Description for production schema"
+
+    tables:
+      - name: productcategory
+        description: "Product category information."
+    
+      - name: productinventory
+        description: "Inventory details of products."
+
+      - name: productsubcategory
+        description: "Product subcategory details."
+
+      - name: product
+        description: "Product master information."

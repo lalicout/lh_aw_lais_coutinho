@@ -21,11 +21,8 @@ models:
       - name: state_province_name
         description: "State or province name."
       
-      - name: state_province_flag
+      - name: is_only_state_province_flag
         description: "0 = StateProvinceCode exists. 1 = StateProvinceCode unavailable, using CountryRegionCode."
         tests:
           - accepted_values:
               values: [0, 1]     
-      
-      - name: rowguide
-        description: "ROWGUIDCOL number uniquely identifying the record."

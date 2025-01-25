@@ -1,0 +1,40 @@
+
+version: 2
+models:
+  - name: stg_purchase_purchaseorderheader
+    description: "Contains summary information for purchase orders."
+    columns:
+      - name: purchase_order_id
+        description: "Primary key for PurchaseOrderHeader records."
+        tests:
+          - unique
+          - not_null
+
+      - name: revision_number
+        description: "Revision number of the purchase order."
+      
+      - name: status
+        description: "Status of the purchase order."
+      
+      - name: employee_id
+        description: "Employee responsible for the purchase order."
+      
+      - name: vendor_id
+        description: "Foreign key to Vendor table."
+        tests:
+          - not_null
+      
+      - name: ship_method_id
+        description: "Foreign key to ShipMethod table."
+      
+      - name: order_date
+        description: "Date the order was placed."
+      
+      - name: subtotal
+        description: "Subtotal of the purchase order."
+      
+      - name: tax_amount
+        description: "Tax amount for the purchase order."
+      
+      - name: freight_cost
+        description: "Freight cost for the purchase order."

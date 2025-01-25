@@ -3,17 +3,17 @@
 version: 2
 
 sources:
-  - name: "PERSON"
-    database: "AW_DATABASE"
-    schema: "AW_RAW__PERSON"
+  - name: person
+    database: aw_database
+    schema: aw_raw__person
     description: "Description for person schema"
     
     tables:
-      - name: PERSON
+      - name: person
         description: "Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts."
-      - name: ADDRESS
+      - name: address
         description: "Street address information for customers, employees, and vendors."
-      - name: STATEPROVINCE
+      - name: stateprovince
         description: "State and province lookup table."
-      - name: COUNTRYREGION
+      - name: countryregion
         description: "Lookup table containing the ISO standard codes for countries and regions."

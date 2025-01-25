@@ -1,0 +1,29 @@
+
+version: 2
+models:
+  - name: stg_sales_specialoffer
+    description: "Contains information about special offers and discounts."
+    columns:
+      - name: special_offer_id
+        description: "Primary key for SpecialOffer records."
+        tests:
+          - unique
+          - not_null
+
+      - name: description
+        description: "Description of the special offer."
+      
+      - name: discount_percentage
+        description: "Discount percentage applied."
+      
+      - name: type_offer
+        description: "Type of offer (e.g., percentage, fixed amount)."
+      
+      - name: category
+        description: "Category of the offer."
+      
+      - name: start_dt
+        description: "Start date of the offer."
+      
+      - name: end_dt
+        description: "End date of the offer."

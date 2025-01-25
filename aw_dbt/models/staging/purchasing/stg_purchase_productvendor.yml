@@ -1,0 +1,36 @@
+
+version: 2
+models:
+  - name: stg_purchase_productvendor
+    description: "Contains mapping between products and their vendors."
+    columns:
+      - name: product_id
+        description: "Foreign key to Product table."
+        tests:
+          - not_null
+
+      - name: vendor_id
+        description: "Foreign key to Vendor table."
+        tests:
+          - not_null
+
+      - name: average_lead_time
+        description: "Average lead time for orders to arrive."
+      
+      - name: standard_price
+        description: "Standard price of the product."
+      
+      - name: last_receipt_cost
+        description: "Cost of the last receipt."
+      
+      - name: last_receipt_date
+        description: "Date of the last receipt."
+      
+      - name: min_order_quantity
+        description: "Minimum order quantity."
+      
+      - name: max_order_quantity
+        description: "Maximum order quantity."
+      
+      - name: on_order_quantity
+        description: "Quantity currently on order."

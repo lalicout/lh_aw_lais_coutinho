@@ -1,0 +1,36 @@
+
+version: 2
+models:
+  - name: stg_purchase_purchaseorderdetail
+    description: "Contains details about each purchase order."
+    columns:
+      - name: purchase_order_id
+        description: "Foreign key to PurchaseOrderHeader table."
+        tests:
+          - not_null
+
+      - name: purchase_order_detail_id
+        description: "Primary key for PurchaseOrderDetail records."
+        tests:
+          - unique
+          - not_null
+
+      - name: due_date
+        description: "Due date for the purchase order line."
+      
+      - name: order_quantity
+        description: "Quantity ordered for the product."
+      
+      - name: product_id
+        description: "Foreign key to Product table."
+        tests:
+          - not_null
+      
+      - name: unit_price
+        description: "Unit price of the product."
+      
+      - name: received_quantity
+        description: "Quantity received."
+      
+      - name: rejected_quantity
+        description: "Quantity rejected."

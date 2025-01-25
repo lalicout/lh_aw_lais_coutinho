@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_product
+    description: "Products in Adventure Works."
+    columns:
+      - name: product_id
+        description: "Primary key. Unique product identification number."
+        tests: 
+          - unique
+          - not_null
+      
+      - name: product_name
+        description: "Name of the product."
+      
+      - name: product_subcategory_id
+        description: "Foreign key to the product subcategory."

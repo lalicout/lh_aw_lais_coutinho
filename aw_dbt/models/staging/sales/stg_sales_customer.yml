@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_sales_customer
+    description: "Current customer information. Also see the Person and Store tables."
+ 
+    columns:
+      - name: customer_id
+        description: "Primary key. Unique customer identification number."
+        tests: 
+          - unique
+          - not_null
+      
+      - name: person_id
+        description: "Foreign key to Person.BusinessEntityID."
+     
+      - name: store_id
+        description: "Foreign key to Store.BusinessEntityID."
+        
+      - name: territory_id
+        description: "Sales territory identification number."

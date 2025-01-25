@@ -18,7 +18,6 @@ models:
           - accepted_values:
               values: ['SC', 'IN', 'SP', 'EM', 'VC', 'GC']
 
-      
       - name: email_promotion
         description: "0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners."
         tests:
@@ -27,19 +26,10 @@ models:
       
       - name: full_name
         description: "Full name of the person."
-      
-      - name: middle_name
-        description: "Middle name of the person."
-      
+            
       - name: namestyle
         description: "0 = Western style name (first name, last name), 1 = Eastern style name (last name, first name)."
       
-      - name: rowguid
-        description: "ROWGUIDCOL number uniquely identifying the record."
-        tests:
-          - not_null
-          - unique
-
       - name: suffix
         description: "Surname suffix. For example, Sr. or Jr."
       
@@ -57,9 +47,6 @@ models:
       
       - name: birth_date
         description: "Birth date of the person."
-      
-      - name: yearly_income
-        description: "Yearly income of the person."
       
       - name: gender
         description: "Gender of the person."

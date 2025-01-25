@@ -1,0 +1,26 @@
+
+version: 2
+models:
+  - name: stg_purchase_vendor
+    description: "Contains information about vendors."
+    columns:
+      - name: vendor_id
+        description: "Primary key for Vendor records."
+        tests:
+          - unique
+          - not_null
+
+      - name: vendor_name
+        description: "Name of the vendor."
+      
+      - name: credit_rating
+        description: "Credit rating assigned to the vendor."
+      
+      - name: preferred_vendor_status
+        description: "Indicates if the vendor is preferred."
+      
+      - name: active_flag
+        description: "Indicates if the vendor is active."
+      
+      - name: modified_date
+        description: "Date the record was last modified."

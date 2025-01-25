@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_sales_store
+    description: "Customers (resellers) of Adventure Works products."
+ 
+    columns:
+      - name: store_id
+        description: "Primary key. Unique customer identification number."
+        tests: 
+          - unique
+          - not_null
+      
+      - name: store_name
+        description: "Name of the store."
+     
+      - name: sales_person_id
+        description: "ID of the sales person assigned to the customer. Foreign key to SalesPerson.BusinessEntityID."
+        
+      - name: annual_revenue
+        description: "Total revenue generated annually by the store."
+
+      - name: business_type
+        description: "Type of business operation for the store (e.g., retail, wholesale, franchise)."
+
+      - name: number_employees
+        description: "Number of employees working at the store."

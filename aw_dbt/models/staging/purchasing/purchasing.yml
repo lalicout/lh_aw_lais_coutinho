@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: purchasing
+    database: aw_database
+    schema: aw_raw__purchasing
+    description: "Description for purchasing schema"
+
+    tables:
+      - name: productvendor
+        description: "Details of products and their vendors."
+    
+      - name: purchaseorderdetail
+        description: "Details of items in purchase orders."
+
+      - name: purchaseorderheader
+        description: "Headers for purchase orders."
+
+      - name: vendor
+        description: "Information about vendors."

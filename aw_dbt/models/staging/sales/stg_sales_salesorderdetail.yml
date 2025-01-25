@@ -1,0 +1,43 @@
+# The descriptions below were taken from the AdventureWorks database documentation in PostgreSQL.
+
+version: 2
+
+models:
+  - name: stg_sales_salesorderdetail
+    description: "Individual products associated with a specific sales order. See SalesOrderHeader."
+    
+    columns:
+      - name: sales_order_id
+        description: "Foreign key to SalesOrderHeader.SalesOrderID."
+        tests:
+          - not_null
+
+      - name: sales_order_detail_id
+        description: "Primary key. Unique sales order detail identification number."
+        tests:
+          - unique 
+          - not_null
+                
+      - name: carrier_tracking_number
+        description: "Shipment tracking number provided by the shipping company."
+      
+      - name: order_qty
+        description: "Quantity ordered per product."
+
+      - name: product_id
+        description: "Product identification number."
+     
+      - name: special_offer_id
+        description: "Promotional code. Foreign key to SpecialOffer.SpecialOfferID"
+      
+      - name: unit_price
+        description: "Selling price of a single product."
+     
+      - name: unit_price_discount
+        description: "Discount amount."
+   
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sales_order_id
+            - sales_order_detail_id

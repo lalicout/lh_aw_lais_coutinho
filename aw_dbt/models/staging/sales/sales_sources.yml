@@ -1,0 +1,42 @@
+# The descriptions below were taken from the AdventureWorks database documentation in PostgreSQL.
+
+version: 2
+
+sources:
+  - name: sales
+    database: aw_database
+    schema: aw_raw__sales
+    description: "Description for sales schema"
+
+    tables:
+      - name: salesorderheader
+        description: "General sales order information." 
+    
+      - name: salesorderheadersalesreason 
+        description: "Cross-reference table mapping sales orders to sales reason codes."
+
+      - name: salesorderdetail 
+        description: "Individual products associated with a specific sales order. See SalesOrderHeader."
+    
+      - name: salesterritory 
+        description: "Sales territory lookup table."
+      
+      - name: salesperson 
+        description: "Sales representative current information."
+      
+      - name: specialoffer 
+        description: "Sale discounts lookup table."
+    
+      - name: specialofferproduct
+        description: "Cross-reference table mapping products to special offer discounts."
+      
+      - name: salesreason
+        description: "Lookup table of customer purchase reasons."
+    
+      - name: customer 
+        description: "Current customer information. Also see the Person and Store tables."
+
+      - name: store
+        description: "Customers (resellers) of Adventure Works products."
+
+      

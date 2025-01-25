@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_product_inventory
+    description: "Product inventory in Adventure Works."
+    columns:
+      - name: product_id
+        description: "Unique product identification number."
+        tests: 
+          - not_null
+      
+      - name: location_id
+        description: "Location identification number where the product is stored."
+        tests: 
+          - not_null
+      
+      - name: quantity
+        description: "Quantity of the product in inventory."
