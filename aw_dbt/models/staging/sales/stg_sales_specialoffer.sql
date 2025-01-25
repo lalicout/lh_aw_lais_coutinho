@@ -14,7 +14,7 @@ specialoffer_transformation as (
         , discountpct as discount_percentage
         , "TYPE" as type_offer
         , category as category
-        , startdate as start_dt
+        , cast(startdate as date) as start_dt
         , enddate as end_dt
     
     from specialoffer_raw

@@ -16,7 +16,7 @@ purchaseorderheader_transformation as (
         ,employeeid as employee_id
         ,vendorid as vendor_id
         ,shipmethodid as ship_method_id
-        ,orderdate as order_date
+        ,cast(orderdate as date) as order_date
         ,subtotal as subtotal
         ,taxamt as tax_amount
         ,freight as freight_cost

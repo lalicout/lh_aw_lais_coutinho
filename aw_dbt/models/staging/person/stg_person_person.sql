@@ -31,8 +31,8 @@ person_transformation as (
         --XML extraction demographics
 
         , xmlget(demographics, 'TotalPurchaseYTD'):"$" as total_purchase_ytd      
-        , xmlget(demographics, '{DateFirstPurchase'):"$" as date_first_purchase
-        , xmlget(demographics, '{BirthDate'):"$" as birth_date
+        , cast(xmlget(demographics, '{DateFirstPurchase'):"$" as date) as date_first_purchase
+        , cast(xmlget(demographics, '{BirthDate'):"$" as date) as birth_date
         , xmlget(demographics, '{Gender'):"$" as gender
 
     from person_raw 

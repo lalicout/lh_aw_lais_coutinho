@@ -15,7 +15,6 @@ vendor_transformation as (
         ,creditrating as credit_rating
         ,preferredvendorstatus as preferred_vendor_status
         ,activeflag as active_flag
-        ,modifieddate as modified_date
     
     from vendor_raw
 

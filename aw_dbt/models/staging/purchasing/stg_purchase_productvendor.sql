@@ -15,7 +15,7 @@ productvendor_transformation as (
         ,averageleadtime as average_lead_time
         ,standardprice as standard_price
         ,lastreceiptcost as last_receipt_cost
-        ,lastreceiptdate as last_receipt_date
+        ,cast(lastreceiptdate as date) as last_receipt_date
         ,minorderqty as min_order_quantity
         ,maxorderqty as max_order_quantity
         ,onorderqty as on_order_quantity
