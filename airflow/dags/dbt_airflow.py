@@ -46,10 +46,10 @@ with DAG(
         "retries": 0,
     },
     
-    description="Pipeline básico com dbt test e dbt run usando variável",
+    description="Pipeline básico - dbt test e dbt run",
     schedule_interval = '0 17 * * *',  # Programada para rodar diariamente às 17:00 UTC (14:00 BRT)
     # schedule_interval = "*/10 * * * *",  # Para testes: roda a DAG a cada 10 minutos
-    start_date=datetime(2025, 1, 26),      
+    start_date=datetime(2025, 1, 25),      
     end_date=datetime(2025, 1, 31),
     catchup=False,
 
