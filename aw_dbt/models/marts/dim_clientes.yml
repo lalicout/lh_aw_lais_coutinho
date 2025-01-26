@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_clientes
+    description: "Dimensão consolidada de clientes, incluindo B2C (pessoas físicas) e B2B (lojas/revendedores)."
+    columns:
+      - name: pk_cliente
+        description: "Chave primária do cliente."
+        tests:
+          - unique
+          - not_null
+      
+      - name: fk_pessoa
+        description: "Chave estrangeira para a tabela de pessoas, representando clientes B2C. Nulo para clientes B2B."
+        tests:
+          - unique
+
+      - name: fk_loja
+        description: "Chave estrangeira para a tabela de lojas, representando clientes B2B. Nulo para clientes B2C."
+        tests:
+          - unique
+          
+      - name: tipo_cliente
+        description: "Tipo de cliente. Valores possíveis: 'B2C' para pessoas físicas e 'B2B' para lojas/revendedores."
+        tests:
+          - accepted_values:
+              values: ['B2C', 'B2B']
+      
+      - name: nome_completo
+        description: "Nome completo do cliente B2C. Nulo para clientes B2B."
+
+      - name: genero
+        description: "Gênero do cliente B2C. Nulo para clientes B2B."
+
+      - name: dt_nascimento
+        description: "Data de nascimento do cliente B2C. Nulo para clientes B2B."
+
+      - name: dt_primeira_compra
+        description: "Data da primeira compra do cliente B2C. Nulo para clientes B2B."
+
+      - name: nome_da_loja
+        description: "Nome da loja do cliente B2B. Nulo para clientes B2C."
+
+      - name: tipo_negocio
+        description: "Tipo de negócio do cliente B2B (e.g., varejo, atacado). Nulo para clientes B2C."
+
+
