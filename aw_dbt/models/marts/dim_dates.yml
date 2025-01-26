@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_data
+    description: "Dimension that provides details about dates for period analysis"
+    columns:
+      - name: date
+        description: "Complete date in the format YYYY-MM-DD"
+        tests: 
+          - unique
+          - not_null
+
+      - name: ano
+        description: "Year corresponding to the date"
+        tests:
+          - not_null
+
+      - name: mes
+        description: "Month number corresponding to the date"
+        tests:
+          - not_null
+
+      - name: dia
+        description: "Day number corresponding to the date"
+        tests:
+          - not_null
+
+      - name: nome_mes
+        description: "Full name of the month"
+        tests:
+          - not_null
+
+      - name: dia_da_semana
+        description: "Full name of the day of the week"
+        tests:
+          - not_null
+
+      - name: trimestre
+        description: "Quarter of the year corresponding to the date"
+        tests:
+          - not_null
