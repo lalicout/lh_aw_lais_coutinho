@@ -1,17 +1,25 @@
-dbt_venv/
+# Diretórios de build e pacotes
 target/
 dbt_packages/
+
+# Logs e arquivos temporários
 /logs/
-
-
-.DS_Store
-Thumbs.db
-
 *.log
 *.tmp
 
+# Cache e arquivos desnecessários
+__pycache__
+.DS_Store
+Thumbs.db
+
+# Configurações de IDEs
 .vscode/
 .idea/
+
+# Arquivos de edição temporários
 *.swp
 
+# Arquivos de ambiente sensíveis
 .env
+
+.vscode

@@ -8,7 +8,7 @@ specialofferproduct_transformation as (
     select
         
         specialofferid as specialoffer_id
-        ,productid as person_id
+        , productid as product_id
         
     from specialofferproduct_raw 
 

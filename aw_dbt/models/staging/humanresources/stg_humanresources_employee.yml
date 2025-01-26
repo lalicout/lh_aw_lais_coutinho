@@ -27,12 +27,13 @@ models:
       
       - name: gender
         description: "Gender of the employee."
-      
+
       - name: hire_date
         description: "Date the employee was hired."
       
       - name: salaried_flag
         description: "Indicates if the employee is salaried."
+
       
       - name: vacation_hours
         description: "Vacation hours allocated to the employee."
