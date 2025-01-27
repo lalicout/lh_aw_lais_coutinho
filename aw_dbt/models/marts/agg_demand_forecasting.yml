@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: agg_demand_forecasting
+    description: "Fato que contém dados históricos de vendas para previsões de demanda."
+    columns:
+
+      - name: nome_produto
+        description: "Nome do produto."
+
+      - name: data_id
+        description: "Chave primária da data."
+
+      - name: data
+        description: "Data da venda."
+
+      - name: mes
+        description: "Mês da venda."
+
+      - name: ano
+        description: "Ano da venda."
+
+      - name: regiao_id
+        description: "Chave primária da região de vendas."
+
+      - name: nome_regiao
+        description: "Nome da região de vendas."
+
+      - name: quantidade_vendida
+        description: "Total de produtos vendidos na data e região específicas."
+
+      - name: valor_total_vendido
+        description: "Valor total das vendas na data e região específicas."
