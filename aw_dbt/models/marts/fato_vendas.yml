@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: fato_vendas
+    description: "Fato de Vendas consolidando informações sobre receita, quantidade vendida, e dados dimensionais."
+    
+    columns:
+      - name: fk_produto
+        description: "Chave estrangeira para a dimensão de produtos."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_produtos')
+              field: pk_produto
+
+      - name: fk_cliente
+        description: "Chave estrangeira para a dimensão de clientes."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_clientes')
+              field: pk_cliente
+
+      - name: fk_vendedor
+        description: "Chave estrangeira para a dimensão de vendedores."
+        tests:
+          - relationships:
+              to: ref('dim_vendedores')
+              field: pk_vendedor
+
+      - name: fk_territorio
+        description: "Chave estrangeira para a dimensão de local/região."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_local')
+              field: fk_territorio
+
+      - name: dt_venda
+        description: "Data da venda."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_dates')
+              field: date
+
+      - name: quantidade_vendida
+        description: "Quantidade total de produtos vendidos."
+        tests:
+          - not_null
+
+      - name: receita_bruta
+        description: "Valor bruto da venda antes de descontos."
+        tests:
+          - not_null
+
+      - name: desconto_aplicado
+        description: "Total de descontos aplicados na venda."
+
+      - name: receita_liquida
+        description: "Receita após aplicação de descontos."
+
+      - name: tipo_venda
+        description: "Indica o tipo de venda: Online ou Física."
+
+      - name: status_pedido
+        description: "Status atual do pedido."  
