@@ -4,12 +4,6 @@ models:
   - name: dim_regioes
     description: "Dimensão consolidada de estados, territórios e países, proporcionando informações geográficas para análises."
     columns:
-      - name: pk_regiao
-        description: "Chave primária única da região, gerada a partir do estado e território."
-        tests:
-          - unique
-          - not_null
-
       - name: fk_estado
         description: "Chave estrangeira para o estado/província (state_province_id)."
         tests:

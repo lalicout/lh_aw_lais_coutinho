@@ -13,16 +13,17 @@ with
     ),
     regioes as (
         select
+
             t.territory_id as fk_territorio
             , t.territory_name as nome_territorio
             , t.territory_group as zona_geografica
+        
         from {{ ref('stg_sales_salesterritory') }} t
     ),
     join_tabelas as (
         select
-        
-            {{ dbt_utils.generate_surrogate_key(['e.fk_estado', 'e.fk_territorio']) }} as pk_regiao
-            , e.fk_estado
+            
+            e.fk_estado
             , e.nome_estado
             , e.codigo_estado
             , e.codigo_pais
@@ -37,6 +38,8 @@ with
         where e.fk_estado is not null
           and e.fk_territorio is not null
     )
+
 select *
+
 from join_tabelas
 
