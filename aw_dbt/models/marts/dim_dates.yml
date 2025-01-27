@@ -1,41 +1,41 @@
 version: 2
 
 models:
-  - name: dim_data
-    description: "Dimension that provides details about dates for period analysis"
+  - name: dim_dates
+    description: "Dimensão que fornece detalhes sobre datas para análise de período"
     columns:
       - name: date
-        description: "Complete date in the format YYYY-MM-DD"
+        description: "Data completa no formato AAAA-MM-DD"
         tests: 
           - unique
           - not_null
 
       - name: ano
-        description: "Year corresponding to the date"
+        description: "Ano correspondente à data"
         tests:
           - not_null
 
       - name: mes
-        description: "Month number corresponding to the date"
+        description: "Número do mês correspondente à data"
         tests:
           - not_null
 
       - name: dia
-        description: "Day number corresponding to the date"
+        description: "Número do dia correspondente à data"
         tests:
           - not_null
 
       - name: nome_mes
-        description: "Full name of the month"
+        description: "Nome completo do mês"
         tests:
           - not_null
 
       - name: dia_da_semana
-        description: "Full name of the day of the week"
+        description: "Nome completo do dia da semana"
         tests:
           - not_null
 
       - name: trimestre
-        description: "Quarter of the year corresponding to the date"
+        description: "Trimestre do ano correspondente à data"
         tests:
           - not_null
