@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_vendedor
+    description: "Dimensão de vendedores com informações pessoais, regionais e metas de vendas."
+    columns:
+      - name: pk_vendedor
+        description: "Chave primária do vendedor."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_vendedor
+        description: "Nome completo do vendedor."
+
+      - name: territorio
+        description: "Território em que o vendedor atua."
+
+      - name: meta_vendas
+        description: "Meta de vendas definida para o vendedor no período atual."
+
+      - name: bonus
+        description: "Bônus recebido pelo vendedor."
+
+      - name: porcentagem_comissao
+        description: "Porcentagem de comissão sobre vendas atribuída ao vendedor."
+
+      - name: vendas_ano_corrente
+        description: "Valor total de vendas acumuladas pelo vendedor no ano corrente."
+
+      - name: vendas_ano_anterior
+        description: "Valor total de vendas acumuladas pelo vendedor no ano anterior."
+
+      - name: data_contratacao
+        description: "Data de contratação do vendedor."
+
+      - name: status_vendedor
+        description: "Status do vendedor. 'Ativo' para vendedores contratados, 'Desligado' caso contrário."
+        tests:
+          - accepted_values:
+              values: ['Ativo', 'Desligado']
