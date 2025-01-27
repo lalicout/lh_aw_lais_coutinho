@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: dim_produtos
+    description: "Dimensão consolidada de produtos com detalhes básicos, categorias e informações relevantes para análises."
+    columns:
+      - name: pk_produto
+        description: "Chave primária do produto."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_produto
+        description: "Nome do produto."
+
+      - name: subcategoria_produto
+        description: "Nome da subcategoria do produto."
+
+      - name: categoria_produto
+        description: "Nome da categoria do produto."
+
+      - name: custo_padrao
+        description: "Custo padrão de fabricação ou aquisição do produto."
+
+      - name: preco_venda
+        description: "Preço de venda do produto."
+
+      - name: estoque_seguranca
+        description: "Nível mínimo de estoque para evitar rupturas."
+
+      - name: ponto_reposicao
+        description: "Nível de estoque que aciona a reposição."
+
+      - name: tamanho_produto
+        description: "Tamanho do produto (se aplicável)."
+
+      - name: peso_produto
+        description: "Peso do produto (se aplicável)."
+
+      - name: data_inicio_vendas
+        description: "Data em que o produto começou a ser vendido."
+        tests:
+          - not_null
+
+      - name: data_fim_vendas
+        description: "Data em que o produto deixou de ser vendido (se aplicável)."
+
+      - name: data_descontinuacao
+        description: "Data em que o produto foi descontinuado (se aplicável)."
+
+      - name: flag_descontinuado
+        description: "Flag que indica se o produto foi descontinuado. 1 = Descontinuado, 0 = Ativo."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+
