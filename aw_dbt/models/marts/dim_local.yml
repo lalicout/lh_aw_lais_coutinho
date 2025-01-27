@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_regioes
+    description: "Dimensão consolidada de estados, territórios e países, proporcionando informações geográficas para análises."
+    columns:
+      - name: pk_regiao
+        description: "Chave primária única da região, gerada a partir do estado e território."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_estado
+        description: "Chave estrangeira para o estado/província (state_province_id)."
+        tests:
+          - not_null
+
+      - name: nome_estado
+        description: "Nome completo do estado ou província."
+
+      - name: codigo_estado
+        description: "Código único do estado ou província."
+
+      - name: codigo_pais
+        description: "Código único do país associado ao estado."
+
+      - name: fk_territorio
+        description: "Chave estrangeira para o território de vendas."
+        tests:
+          - not_null
+
+      - name: nome_territorio
+        description: "Nome do território de vendas."
+
+      - name: zona_geografica
+        description: "Área geográfica maior à qual o território pertence."
+
