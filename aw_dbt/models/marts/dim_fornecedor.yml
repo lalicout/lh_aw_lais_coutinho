@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_fornecedor
+    description: "Tabela dimensional que contém informações sobre os fornecedores, incluindo status, classificação de crédito e número de produtos fornecidos."
+
+    columns:
+      - name: pk_fornecedor
+        description: "Identificador único do fornecedor."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_fornecedor
+        description: "Nome do fornecedor."
+
+      - name: classificacao_credito
+        description: "Classificação de crédito do fornecedor (quanto maior, melhor)."
+
+      - name: status_preferencial
+        description: "Indicador se o fornecedor é preferencial (Sim/Não)."
+
+      - name: status_ativo
+        description: "Indicador se o fornecedor está ativo (Sim/Não)."
+
+      - name: lead_time_medio
+        description: "Tempo médio de entrega dos produtos fornecidos por este fornecedor (em dias)."
+
+      - name: quantidade_produtos
+        description: "Número de produtos fornecidos por este fornecedor."
