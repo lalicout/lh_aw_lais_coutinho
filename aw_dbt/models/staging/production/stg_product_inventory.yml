@@ -2,17 +2,33 @@ version: 2
 
 models:
   - name: stg_product_inventory
-    description: "Product inventory in Adventure Works."
+    description: "Staging table for product inventory, detailing the quantities of products in various storage locations."
     columns:
       - name: product_id
-        description: "Unique product identification number."
-        tests: 
+        description: "Foreign key. Product identification number."
+        tests:
           - not_null
-      
+          - relationships:
+              to: ref('stg_product')
+              field: product_id
+
       - name: location_id
-        description: "Location identification number where the product is stored."
-        tests: 
+        description: "Foreign key. Inventory location identification number."
+        tests:
           - not_null
-      
-      - name: quantity
-        description: "Quantity of the product in inventory."
+
+      - name: storage_shelf
+        description: "Storage compartment within an inventory location."
+        tests:
+          - not_null
+
+      - name: storage_bin
+        description: "Storage container on a shelf in an inventory location."
+        tests:
+          - not_null
+
+      - name: inventory_quantity
+        description: "Quantity of products in the specified inventory location."
+        tests:
+          - not_null
+

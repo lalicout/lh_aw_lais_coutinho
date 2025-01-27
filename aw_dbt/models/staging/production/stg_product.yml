@@ -2,16 +2,96 @@ version: 2
 
 models:
   - name: stg_product
-    description: "Products in Adventure Works."
+    description: "Staging table for products in Adventure Works, containing detailed product information for further transformation and analysis."
     columns:
       - name: product_id
         description: "Primary key. Unique product identification number."
-        tests: 
+        tests:
           - unique
           - not_null
       
       - name: product_name
         description: "Name of the product."
+
+      - name: product_number
+        description: "Unique product identification code."
+
+      - name: is_manufactured
+        description: "Flag indicating if the product is manufactured in-house. 1 = Yes, 0 = No."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
       
+      - name: is_salable
+        description: "Flag indicating if the product is a salable item. 1 = Yes, 0 = No."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: product_color
+        description: "Color of the product, if applicable."
+      
+      - name: safety_stock_level
+        description: "Minimum inventory quantity to avoid stockouts."
+        tests:
+          - not_null
+      
+      - name: reorder_point
+        description: "Inventory level that triggers a purchase order or work order."
+        tests:
+          - not_null
+
+      - name: standard_cost
+        description: "Standard cost of the product, used for cost analysis."
+        tests:
+          - not_null
+
+      - name: list_price
+        description: "Selling price of the product."
+        tests:
+          - not_null
+
+      - name: product_size
+        description: "Size of the product, if applicable."
+      
+      - name: size_unit_measure
+        description: "Unit of measure for the product size (e.g., CM, IN)."
+      
+      - name: product_weight
+        description: "Weight of the product, if applicable."
+      
+      - name: weight_unit_measure
+        description: "Unit of measure for the product weight (e.g., KG, LB)."
+
+      - name: days_to_manufacture
+        description: "Number of days required to manufacture the product."
+        tests:
+          - not_null
+      
+      - name: product_line
+        description: "Product line category (e.g., R = Road, M = Mountain, T = Touring, S = Standard)."
+      
+      - name: product_class
+        description: "Product classification (e.g., H = High, M = Medium, L = Low)."
+      
+      - name: product_style
+        description: "Product style (e.g., W = Womens, M = Mens, U = Universal)."
+
       - name: product_subcategory_id
         description: "Foreign key to the product subcategory."
+      
+      - name: product_model_id
+        description: "Foreign key to the product model."
+      
+      - name: sell_start_date
+        description: "Date when the product became available for sale."
+        tests:
+          - not_null
+
+      - name: sell_end_date
+        description: "Date when the product stopped being sold, if applicable."
+      
+      - name: discontinued_date
+        description: "Date when the product was discontinued, if applicable."
