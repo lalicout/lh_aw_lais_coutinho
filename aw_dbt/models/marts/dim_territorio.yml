@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_territorio
+    description: "Dimensão que contém os territórios de vendas, suas zonas geográficas e países associados."
+
+    columns:
+      - name: pk_territorio
+        description: "Chave primária da dimensão território. Identificador único para o território."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_territorio
+        description: "Nome do território de vendas, ex: Nordeste, Sudeste, etc."
+
+      - name: codigo_pais
+        description: "Código do país associado ao território."
+        tests:
+          - not_null
+
+      - name: zona_geografica
+        description: "Zona geográfica à qual o território pertence, ex: América do Norte, Europa."

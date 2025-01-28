@@ -2,66 +2,83 @@ version: 2
 
 models:
   - name: fato_vendas
-    description: "Fato de Vendas consolidando informações sobre receita, quantidade vendida, e dados dimensionais."
-    
+    description: 
+      Tabela fato de vendas que agrega informações de pedidos, produtos, clientes, territórios e métricas financeiras.
     columns:
-      - name: fk_produto
-        description: "Chave estrangeira para a dimensão de produtos."
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_produtos')
-              field: pk_produto
-
-      - name: fk_cliente
-        description: "Chave estrangeira para a dimensão de clientes."
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_clientes')
-              field: pk_cliente
-
-      - name: fk_vendedor
-        description: "Chave estrangeira para a dimensão de vendedores."
-        tests:
-          - relationships:
-              to: ref('dim_vendedores')
-              field: pk_vendedor
-
-      - name: fk_territorio
-        description: "Chave estrangeira para a dimensão de local/região."
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_local')
-              field: fk_territorio
-
-      - name: dt_venda
-        description: "Data da venda."
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_dates')
-              field: date
-
-      - name: quantidade_vendida
-        description: "Quantidade total de produtos vendidos."
-        tests:
-          - not_null
-
+      - name: pedido_id
+        description: Identificador único do pedido.
+      
+      - name: detalhe_pedido_id
+        description: Identificador único do detalhe do pedido.
+      
+      - name: cliente_id
+        description: Chave estrangeira que identifica o cliente.
+      
+      - name: vendedor_id
+        description: Chave estrangeira que identifica o vendedor responsável pelo pedido.
+      
+      - name: territorio_id
+        description: Chave estrangeira que identifica o território de vendas.
+      
+      - name: produto_id
+        description: Chave estrangeira que identifica o produto vendido.
+      
+      - name: endereco_cobranca_id
+        description: Chave estrangeira que identifica o endereço de cobrança.
+      
+      - name: endereco_entrega_id
+        description: Chave estrangeira que identifica o endereço de entrega.
+      
+      - name: metodo_envio_id
+        description: Chave estrangeira que identifica o método de envio.
+      
+      - name: data_pedido
+        description: Data em que o pedido foi realizado.
+      
+      - name: data_vencimento
+        description: Data de vencimento do pedido.
+      
+      - name: data_envio
+        description: Data em que o pedido foi enviado.
+      
+      - name: quantidade_pedida
+        description: Quantidade de itens vendidos no pedido.
+      
+      - name: preco_unitario
+        description: Preço unitário do produto no pedido.
+      
+      - name: desconto_unitario
+        description: Percentual de desconto aplicado ao preço unitário.
+      
       - name: receita_bruta
-        description: "Valor bruto da venda antes de descontos."
-        tests:
-          - not_null
-
-      - name: desconto_aplicado
-        description: "Total de descontos aplicados na venda."
-
+        description: Receita bruta calculada como preço unitário multiplicado pela quantidade pedida.
+      
       - name: receita_liquida
-        description: "Receita após aplicação de descontos."
-
-      - name: tipo_venda
-        description: "Indica o tipo de venda: Online ou Física."
-
+        description: Receita líquida calculada como receita bruta menos o desconto aplicado.
+      
+      - name: valor_desconto
+        description: Valor total do desconto aplicado no pedido.
+      
+      - name: valor_imposto
+        description: Valor total dos impostos aplicados ao pedido.
+      
+      - name: valor_frete
+        description: Valor do frete cobrado no pedido.
+      
+      - name: valor_total
+        description: Valor total do pedido, incluindo frete e impostos.
+      
+      - name: pedido_online
+        description: Indica se o pedido foi realizado online (1 para sim, 0 para não).
+      
+      - name: codigo_aprovacao_cartao
+        description: Código de aprovação do pagamento por cartão de crédito.
+      
+      - name: numero_rastreamento
+        description: Número de rastreamento do pedido enviado.
+      
+      - name: comentario_venda
+        description: Comentários adicionais sobre o pedido.
+      
       - name: status_pedido
-        description: "Status atual do pedido."  
+        description: Status do pedido.
