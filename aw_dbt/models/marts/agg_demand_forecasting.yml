@@ -1,33 +1,47 @@
 version: 2
 
 models:
-  - name: agg_demand_forecasting
-    description: "Fato que contém dados históricos de vendas para previsões de demanda."
+  - name: abc_requirements
+    description: |
+
+      "Modelo que agrega informações de vendas para calcular os requisitos ABC dos produtos.
+      Através de junções e agregações, o modelo obtém os dados de vendas (produto, data, território,
+      quantidade e receita bruta) e, em seguida, utiliza funções janela para calcular:
+      - A receita acumulada por ano (ordenada pela receita bruta em ordem decrescente);
+      - A receita total do ano;
+      - O percentual acumulado;
+      - A classificação ABC (grupo 'a' para até 80% da receita acumulada, 'b' para até 95% e 'c' para o restante)."
+
     columns:
-
       - name: nome_produto
-        description: "Nome do produto."
-
-      - name: data_id
-        description: "Chave primária da data."
-
+        description: "Nome do produto vendido."
+      
       - name: data
         description: "Data da venda."
-
+      
       - name: mes
-        description: "Mês da venda."
-
+        description: "Mês em que a venda ocorreu."
+      
       - name: ano
-        description: "Ano da venda."
-
-      - name: regiao_id
-        description: "Chave primária da região de vendas."
-
-      - name: nome_regiao
-        description: "Nome da região de vendas."
-
+        description: "Ano em que a venda ocorreu."
+      
+      - name: nome_territorio
+        description: "Nome do território onde a venda foi realizada."
+      
       - name: quantidade_vendida
-        description: "Total de produtos vendidos na data e região específicas."
-
-      - name: valor_total_vendido
-        description: "Valor total das vendas na data e região específicas."
+        description: "Quantidade total do produto vendida no período."
+      
+      - name: receita_bruta
+        description: "Receita bruta total gerada pelas vendas do produto."
+      
+      - name: receita_acumulada
+        description: "Receita acumulada por ano, calculada através de uma função janela que soma a receita bruta ordenada de forma decrescente."
+      
+      - name: receita_total_ano
+        description: "Receita total acumulada no ano para o produto."
+      
+      - name: percentual_acumulado
+        description: "Percentual acumulado da receita bruta em relação à receita total anual, utilizado para definir a classificação ABC."
+      
+      - name: grupo_abc
+        description: "Classificação ABC atribuída com base no percentual acumulado da receita bruta: - 'a': até 80%, - 'b': entre 80% e 95%, - 'c': acima de 95%."
