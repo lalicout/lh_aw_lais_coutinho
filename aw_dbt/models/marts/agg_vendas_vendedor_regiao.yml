@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: agg_vendas_vendedor_regiao
+    description: |
+      "Modelo que agrega as informações de vendas por vendedor e região.
+      São somadas as quantidades, receitas (bruta e líquida), descontos e valores totais,
+      agrupadas pelo identificador do vendedor, nome do território e zona geográfica."
+
+    columns:
+      - name: vendedor_id
+        description: "Identificador único do vendedor."
+
+      - name: nome_territorio
+        description: "Nome do território relacionado à venda."
+      
+      - name: zona_geografica
+        description: "Zona geográfica associada ao território."
+     
+      - name: total_quantidade_vendida
+        description: "Soma total da quantidade pedida nas vendas."
+
+      - name: total_receita_bruta
+        description: "Soma da receita bruta das vendas."
+  
+      - name: total_receita_liquida
+        description: "Soma da receita líquida das vendas."
+
+      - name: total_valor_desconto
+        description: "Soma do valor dos descontos aplicados nas vendas."
+
+      - name: total_valor_total
+        description: "Soma do valor total das vendas."
+
