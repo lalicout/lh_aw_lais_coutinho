@@ -1,8 +1,10 @@
 version: 2
 
 models:
-  - name: dim_regioes
-    description: "Dimensão consolidada de estados, territórios e países, proporcionando informações geográficas para análises."
+  - name: dim_local
+    description: >
+      Dimensão consolidada que reúne informações geográficas de estados, territórios e países,
+      além de dados de endereços, proporcionando uma visão completa para análises regionais.
     columns:
       - name: fk_estado
         description: "Chave estrangeira para o estado/província (state_province_id)."
@@ -28,4 +30,20 @@ models:
 
       - name: zona_geografica
         description: "Área geográfica maior à qual o território pertence."
+
+      - name: fk_endereco
+        description: "Chave estrangeira para o endereço associado ao estado."
+
+      - name: endereco
+        description: "Endereço principal associado ao estado ou território."
+
+      - name: complemento
+        description: "Complemento do endereço, se disponível."
+
+      - name: cidade
+        description: "Cidade onde o endereço está localizado."
+
+      - name: postal_code
+        description: "Código postal do endereço."
+
 
