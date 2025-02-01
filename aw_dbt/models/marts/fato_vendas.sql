@@ -1,4 +1,4 @@
-with vendas_fato as (
+with fato_vendas as (
     select
         soh.sales_order_id as pedido_id
         , sod.sales_order_detail_id as detalhe_pedido_id
@@ -41,5 +41,4 @@ with vendas_fato as (
         soh.sales_order_id = sod.sales_order_id
 )
 select *
-from vendas_fato
-
+from fato_vendas
