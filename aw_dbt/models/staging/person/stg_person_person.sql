@@ -23,7 +23,12 @@ person_transformation as (
 
          -- Concatenating full name
 
-        , initcap(concat_ws(' ', firstname, middlename, lastname)) as full_name
+        , initcap(trim(
+            coalesce(firstname, '') || ' ' || 
+            coalesce(middlename, '') || ' ' || 
+            coalesce(lastname, '')
+        )) as full_name
+
         , namestyle
         , initcap(suffix) as suffix
         , initcap(title) as title
