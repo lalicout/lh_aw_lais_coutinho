@@ -1,5 +1,4 @@
 version: 2
-
 models:
   - name: agg_vendas_vendedor_regiao
     description: |
@@ -32,3 +31,41 @@ models:
       - name: total_valor_total
         description: "Soma do valor total das vendas."
 
+      - name: cidade
+        description: "Cidade do endereço de faturamento."
+
+      - name: estado
+        description: "Estado do endereço de faturamento."
+
+      - name: pais
+        description: "País do endereço de faturamento."
+
+      - name: nome_da_loja
+        description: "Nome da loja do cliente."
+
+      - name: nome_produto
+        description: "Nome do produto vendido."
+
+      - name: categoria_produto
+        description: "Categoria do produto vendido."
+
+      - name: subcategoria_produto
+        description: "Subcategoria do produto vendido."
+
+      - name: pk_produto
+        description: "Chave primária do produto."
+
+      - name: quantidade_pedida
+        description: "Quantidade pedida do produto."
+
+      - name: preco_unitario
+        description: "Preço unitário do produto."
+
+      - name: data_pedido
+        description: "Data do pedido."
+
+      - name: order_date
+        description: "Data do pedido."
+
+      - name: order_qty
+        description: "Quantidade do pedido."
