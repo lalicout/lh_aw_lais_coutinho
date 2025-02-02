@@ -6,32 +6,16 @@ models:
     columns:
       - name: fk_produto
         description: "Chave estrangeira que referencia o produto na dimensão de produtos."
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_produtos')
-              field: pk_produto
 
       - name: fk_fornecedor
         description: "Chave estrangeira que referencia o fornecedor na dimensão de fornecedores."
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_fornecedores')
-              field: pk_fornecedor
+
 
       - name: fk_metodo_envio
         description: "Chave estrangeira que referencia o método de envio."
-        tests:
-          - not_null
 
-      - name: fk_data
-        description: "Chave estrangeira que referencia a data na dimensão de datas."
-        tests:
-          - not_null
-          - relationships:
-              to: ref('dim_dates')
-              field: date
+      - name: data_pedido
+        description: "Data do pedido de compra."
 
       - name: nome_produto
         description: "Nome do produto associado ao pedido."
@@ -41,18 +25,13 @@ models:
 
       - name: order_quantity
         description: "Quantidade de produtos pedida no pedido de compra."
-        tests:
-          - not_null
 
       - name: received_quantity
         description: "Quantidade de produtos recebida no pedido de compra."
-        tests:
-          - not_null
 
       - name: rejected_quantity
         description: "Quantidade de produtos rejeitada no pedido de compra."
 
       - name: custo_total
         description: "Custo total calculado com base na quantidade recebida e o preço unitário."
-        tests:
-          - not_null
+

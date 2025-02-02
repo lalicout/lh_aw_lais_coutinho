@@ -21,6 +21,5 @@ from {{ ref('stg_sales_salesperson') }} sp
 left join {{ ref('stg_humanresources_employee') }} e
     on sp.sales_person_id = e.employee_id
 left join {{ ref('stg_person_person') }} p
-    on sp.sales_person_id = p.person_id
-where p.person_type = 'SP'
+    on sp.sales_person_id = p.person_id and p.person_type = 'SP'
 

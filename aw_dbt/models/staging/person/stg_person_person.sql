@@ -35,10 +35,11 @@ person_transformation as (
         
         --XML extraction demographics
 
-        , xmlget(demographics, 'TotalPurchaseYTD'):"$" as total_purchase_ytd      
-        , cast(xmlget(demographics, '{DateFirstPurchase'):"$" as date) as date_first_purchase
-        , cast(xmlget(demographics, '{BirthDate'):"$" as date) as birth_date
-        , xmlget(demographics, '{Gender'):"$" as gender
+        , xmlget(demographics, 'TotalPurchaseYTD') as total_purchase_ytd      
+        , to_date(regexp_replace(to_varchar(xmlget(demographics, 'DateFirstPurchase')), '[^0-9\-]',''), 'YYYY-MM-DD') as date_first_purchase
+        , to_date(regexp_replace(to_varchar(xmlget(demographics, 'BirthDate')), '[^0-9\-]', ''), 'YYYY-MM-DD') as birth_date
+
+        , xmlget(demographics, 'Gender') as gender
 
     from person_raw 
 )

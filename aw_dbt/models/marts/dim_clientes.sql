@@ -1,52 +1,47 @@
 with clientes_b2c as (
     
     select
-
         customer.customer_id as pk_cliente
-        , person.person_id as fk_pessoa
-        , null::integer as fk_loja
+        , customer.person_id as fk_pessoa
+        , customer.store_id as fk_loja
         , 'B2C' as tipo_cliente
-        , person.full_name::varchar as nome_completo
-        , person.gender::varchar as genero
-        , person.birth_date::date as dt_nascimento
-        , person.date_first_purchase::date as dt_primeira_compra
-        , null::varchar as nome_da_loja
-        , null::varchar as tipo_negocio
-    
+        , person.full_name as nome_completo
+        , person.gender as genero
+        , person.birth_date as dt_nascimento
+        , person.date_first_purchase as dt_primeira_compra
+        , null as nome_da_loja
+        , null as tipo_negocio
     from {{ ref('stg_sales_customer') }} as customer
-    left join {{ ref('stg_person_person') }} as person
+    inner join {{ ref('stg_person_person') }} as person
         on customer.person_id = person.person_id
-    where person.person_type = 'IN'
-
+        and person.person_type = 'IN'
 ),
 
 clientes_b2b as (
-
     select
-
         customer.customer_id as pk_cliente
-        , null::integer as fk_pessoa
-        , store.store_id as fk_loja
+        , null as fk_pessoa  
+        , customer.store_id as fk_loja
         , 'B2B' as tipo_cliente
-        , null::varchar as nome_completo
-        , null::varchar as genero
-        , null::date as dt_nascimento
-        , null::date as dt_primeira_compra
-        , store.store_name::varchar as nome_da_loja
-        , store.business_type::varchar as tipo_negocio
+        , null as nome_completo
+        , null as genero
+        , null as dt_nascimento
+        , null as dt_primeira_compra
+        , store.store_name as nome_da_loja
+        , store.business_type as tipo_negocio
 
-        from {{ ref('stg_sales_customer') }} as customer
-        
-        left join {{ ref('stg_person_person') }} as person
-            on customer.person_id = person.person_id
-        
-        left join {{ ref('stg_sales_store') }} as store
-            on customer.store_id = store.store_id 
-        where person.person_type = 'SC'
+    from {{ ref('stg_sales_customer') }} as customer
+    inner join {{ ref('stg_sales_store') }} as store
+        on customer.store_id = store.store_id
     
+),
 
+juncao_cliente as (
+
+    select * from clientes_b2c
+    union all
+    select * from clientes_b2b
 )
 
-select distinct * from clientes_b2c
-union all
-select distinct * from clientes_b2b
+select * from juncao_cliente
+

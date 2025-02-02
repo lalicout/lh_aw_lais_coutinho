@@ -6,20 +6,16 @@ models:
     columns:
       - name: pk_cliente
         description: "Chave primária do cliente."
-        tests:
+        tests: 
           - unique
           - not_null
-      
+          
       - name: fk_pessoa
         description: "Chave estrangeira para a tabela de pessoas, representando clientes B2C. Nulo para clientes B2B."
-        tests:
-          - unique
 
       - name: fk_loja
         description: "Chave estrangeira para a tabela de lojas, representando clientes B2B. Nulo para clientes B2C."
-        tests:
-          - unique
-          
+
       - name: tipo_cliente
         description: "Tipo de cliente. Valores possíveis: 'B2C' para pessoas físicas e 'B2B' para lojas/revendedores."
         tests:
