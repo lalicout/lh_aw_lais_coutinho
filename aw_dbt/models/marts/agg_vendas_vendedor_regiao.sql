@@ -9,7 +9,6 @@ with
     
     dim_clientes as (
         select * from {{ ref('dim_clientes') }}
-        where tipo_cliente = 'B2B'
     ),
     
     join_enderecos as (
@@ -44,7 +43,7 @@ with
  
                 
         from fato_vendas fv
-        left join dim_clientes dc on fv.cliente_id = dc.pk_cliente
+        inner join dim_clientes dc on fv.cliente_id = dc.pk_cliente
         left join join_enderecos je on je.fk_endereco_faturamento = fv.cliente_id
         left join dim_produtos dp on fv.produto_id = dp.pk_produto
         )
