@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: bridge_address
+    description: "Union of shipping and billing addresses from sales data"
+    columns:
+      - name: pedido_id
+        description: "Order ID"
+      - name: fk_endereco
+        description: "Foreign key to the address"
+      - name: tipo_endereco
+        description: "Type of address (shipping or billing)"

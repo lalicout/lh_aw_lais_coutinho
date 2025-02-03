@@ -23,11 +23,14 @@ with fato_vendas as (
         , soh.online_order_flag as pedido_online
         , sod.carrier_tracking_number as numero_rastreamento
         , soh.comment as comentario_venda
+        , soh.bill_to_address_id as fk_endereco_faturamento
+        , soh.ship_to_address_id as fk_endereco_de_envio
+        , sod.tipo_promocao as status_oferta
 
     from
         {{ ref('stg_sales_salesorderheader') }} soh
         left join
-        {{ ref('stg_sales_salesorderdetail') }} sod
+        {{ ref('int_sales_order_detail') }} sod
         on
         soh.sales_order_id = sod.sales_order_id
 )

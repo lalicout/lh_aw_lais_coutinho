@@ -82,3 +82,6 @@ models:
       
       - name: status_pedido
         description: Status do pedido.
+        
+      - name: status_oferta
+        description: Status da oferta associada ao pedido.

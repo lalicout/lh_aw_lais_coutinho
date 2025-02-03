@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: int_sales_order_detail
+    description: "Produtos individuais associados a um pedido de venda específico. Veja SalesOrderHeader."
+    
+    columns:
+      - name: sales_order_id
+        description: "Chave estrangeira para SalesOrderHeader.SalesOrderID."
+        tests:
+          - not_null
+
+      - name: sales_order_detail_id
+        description: "Chave primária. Número de identificação único do detalhe do pedido de venda."
+        tests:
+          - unique 
+          - not_null
+          
+      - name: carrier_tracking_number
+        description: "Número de rastreamento fornecido pela empresa de transporte."
+      
+      - name: order_qty
+        description: "Quantidade pedida por produto."
+
+      - name: product_id
+        description: "Número de identificação do produto."
+     
+      - name: special_offer_id
+        description: "Código promocional. Chave estrangeira para SpecialOffer.SpecialOfferID."
+      
+      - name: tipo_promocao
+        description: "Tipo de promoção."
+
+      - name: unit_price
+        description: "Preço de venda de um único produto."
+     
+      - name: unit_price_discount
+        description: "Valor do desconto."
+   
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - sales_order_id
+            - sales_order_detail_id
